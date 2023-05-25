@@ -148,12 +148,26 @@ loop:
     if (${last_target} != ${target} && ${last_friendly_target} != ${target}) then
         # relinquish fan speed control back to the system
         if ("x${target}" == "x-1") then
-            /usr/bin/nvidia-settings -a '[gpu:0]/GPUFanControlState=0'  $*
+            /usr/bin/nvidia-settings -a '[gpu:0]/GPUFanControlState=0'  $
+	    /usr/bin/nvidia-settings -a '[gpu:1]/GPUFanControlState=0'  $*
+            /usr/bin/nvidia-settings -a '[gpu:2]/GPUFanControlState=0'  $*
+            /usr/bin/nvidia-settings -a '[gpu:3]/GPUFanControlState=0'  $*
+            /usr/bin/nvidia-settings -a '[gpu:4]/GPUFanControlState=0'  $*
+            /usr/bin/nvidia-settings -a '[gpu:5]/GPUFanControlState=0'  $*
+            /usr/bin/nvidia-settings -a '[gpu:6]/GPUFanControlState=0'  $*
+            /usr/bin/nvidia-settings -a '[gpu:7]/GPUFanControlState=0'  $*
         endif
     
         # set fan speed on primary GPU to target
         if (${target} >= 0) then
             /usr/bin/nvidia-settings -a '[gpu:0]/GPUFanControlState=1' -a '[fan:0]/GPUTargetFanSpeed='${target}  $*
+	    /usr/bin/nvidia-settings -a '[gpu:1]/GPUFanControlState=1' -a '[fan:1]/GPUTargetFanSpeed='${target}  $*
+            /usr/bin/nvidia-settings -a '[gpu:2]/GPUFanControlState=1' -a '[fan:2]/GPUTargetFanSpeed='${target}  $*
+            /usr/bin/nvidia-settings -a '[gpu:3]/GPUFanControlState=1' -a '[fan:3]/GPUTargetFanSpeed='${target}  $*
+            /usr/bin/nvidia-settings -a '[gpu:4]/GPUFanControlState=1' -a '[fan:4]/GPUTargetFanSpeed='${target}  $*
+            /usr/bin/nvidia-settings -a '[gpu:5]/GPUFanControlState=1' -a '[fan:5]/GPUTargetFanSpeed='${target}  $*
+            /usr/bin/nvidia-settings -a '[gpu:6]/GPUFanControlState=1' -a '[fan:6]/GPUTargetFanSpeed='${target}  $*
+            /usr/bin/nvidia-settings -a '[gpu:7]/GPUFanControlState=1' -a '[fan:7]/GPUTargetFanSpeed='${target}  $*
         endif
     endif
 
