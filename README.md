@@ -7,7 +7,7 @@ cd /root/set-gpu-fans
 
 ln -s /root/set-gpu-fans /opt/set-gpu-fans
 
-ln -s /usr/bin/nvidia-smi /opt/bin/nvidia-smi
+ln -s /usr/bin/nvidia-smi /opt/bin/nvidia-smi #需要看nvcmd98行是否为/opt/bin/nvidia-smi，如果是需要这步操作。若是/usr/bin/nvidia-smi则不需要
 
 /root/set-gpu-fans/cool_gpu >& /root/set-gpu-fans/controller.log &
 
