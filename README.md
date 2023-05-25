@@ -1,9 +1,14 @@
 # set_gpu_fans_public
-Controlling the fan speed of an NVIDIA GPU on a headless linux system requires spoofing a display.
-This can be used to gain a few percent additonal performance, at the cost of increased noise.
-For installation and usage, read the comments in cool_gpu.
+git clone https://github.com/karl853/set_gpu_fans_public
+
+mv set_gpu_fans_public set-gpu-fans
+
+cd /root/set-gpu-fans
+
 ln -s /root/set-gpu-fans /opt/set-gpu-fans
+
 ln -s /usr/bin/nvidia-smi /opt/bin/nvidia-smi
+
 /root/set-gpu-fans/cool_gpu >& /root/set-gpu-fans/controller.log &
 
 ## temp of multi-gpu is individually obtained and adjusted 
